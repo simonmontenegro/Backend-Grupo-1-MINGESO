@@ -28,7 +28,9 @@ public class ProductRepositoryImp implements ProductRepository{
     // Get product by code
     @Override
     public List<Product> getProductByCode(Long code){
+        System.out.println("hola");
         try(Connection conn = sql2o.open()){
+            System.out.println("hola 2");
             return conn.createQuery("select * from product WHERE code = :code")
                 .executeAndFetch(Product.class);
         } catch (Exception e) {

@@ -34,7 +34,7 @@ public class ProductService {
     }
 
     @GetMapping("/product/{code}")
-    public List<Product> getProduct(@PathVariable Long code) {
+    public List<Product> getProductByCode(@PathVariable Long code) {
         return productRepository.getProductByCode(code);
     }
 
