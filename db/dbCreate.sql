@@ -13,7 +13,7 @@ CREATE TABLE public.product (
   "expiration_date" date,
   "category" boolean,
   "price" double precision,
-  "delete" boolean default false,
+  "delete" boolean default false
 );
 
-ALTER TABLE public.volunteer OWNER TO postgres;
+ALTER TABLE public.product OWNER TO postgres;

@@ -1,11 +1,14 @@
 package com.mingeso.backend.repositories;
 
-import com.mingeso.backend.models.*;
-import org.springframework.beans.factory.annotation.*;
-import org.sql2o.*;
+import com.mingeso.backend.models.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.sql2o.Connection;
+import org.sql2o.Sql2o;
 
-import java.util.*;
+import java.util.List;
 
+@Repository
 public class ProductRepositoryImp implements ProductRepository{
     @Autowired
     private Sql2o sql2o;
