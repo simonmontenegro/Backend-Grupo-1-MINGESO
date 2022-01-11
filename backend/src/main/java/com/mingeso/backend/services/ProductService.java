@@ -28,17 +28,14 @@ public class ProductService {
 
     @GetMapping("/allproducts")
     public List<Product> getAllProducts() {
-        //System.out.println("probando");
-        //return String.format("Hola");
         return productRepository.getAllProducts();
     }
-
     @GetMapping("/product/{code}")
     public List<Product> getProductByCode(@PathVariable Long code) {
         return productRepository.getProductByCode(code);
     }
 
-    @DeleteMapping("/product/{code}")
+    @DeleteMapping("/deleteproduct/{code}")
     public boolean deleteProduct(@PathVariable Long code){
         return productRepository.deleteProduct(code);
     }

@@ -17,7 +17,7 @@ public class ProductRepositoryImp implements ProductRepository{
     @Override
     public List<Product> getAllProducts() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from product")
+            return conn.createQuery("select * from product where delete=false")
                 .executeAndFetch(Product.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -28,11 +28,14 @@ public class ProductRepositoryImp implements ProductRepository{
     // Get product by code
     @Override
     public List<Product> getProductByCode(Long code){
-        System.out.println("hola");
+        if(lastCode() < code){
+            System.out.println("El código ingresado no existe.");
+            return null;
+        }
         try(Connection conn = sql2o.open()){
-            System.out.println("hola 2");
-            return conn.createQuery("select * from product WHERE code = :code")
-                .executeAndFetch(Product.class);
+            return conn.createQuery("select * from product where code = :code and delete=false")
+                    .addParameter("code", code)
+                    .executeAndFetch(Product.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -58,14 +61,13 @@ public class ProductRepositoryImp implements ProductRepository{
     public Product createProduct(Product ProductNew){
         Long codeNew=lastCode()+1;
         try(Connection conn=sql2o.open()){
-        String sql="INSERT INTO product (code, name, expiration_date, category, price, delete) values (:code, :name, :expiration_date, :category, :price, :delete)";
+        String sql="INSERT INTO product (code, name, expiration_date, category, price) values (:code, :name, :expiration_date, :category, :price)";
         Long insertedCode=conn.createQuery(sql,true)
         .addParameter("code",codeNew)
         .addParameter("name",ProductNew.getName())
         .addParameter("expiration_date",ProductNew.getExpiration_date())
         .addParameter("category",ProductNew.getCategory())
         .addParameter("price",ProductNew.getPrice())
-        .addParameter("delete",ProductNew.getDelete())
         .executeUpdate().getKey(Long.class);
         ProductNew.setCode(insertedCode);
         ProductNew.setDelete(false);
