@@ -1,6 +1,9 @@
 package com.mingeso.backend.models;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Product {
     private Long code;
     private String name;
@@ -9,7 +12,13 @@ public class Product {
     private double price;
     private Boolean delete;
 
-    public Product(Long code, String name, Date expiration_date, Boolean category, double price, Boolean delete) {
+    @JsonCreator
+    public Product(@JsonProperty("code") Long code, 
+    @JsonProperty("name") String name, 
+    @JsonProperty("expiration_date") Date expiration_date, 
+    @JsonProperty("category") Boolean category, 
+    @JsonProperty("price") double price, 
+    @JsonProperty("delete") Boolean delete) {
         this.code = code;
         this.name = name;
         this.expiration_date = expiration_date;
