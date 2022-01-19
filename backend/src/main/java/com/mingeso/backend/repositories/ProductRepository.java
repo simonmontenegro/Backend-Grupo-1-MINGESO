@@ -8,5 +8,6 @@ public interface ProductRepository {
     List<Product> getAllProducts();
     List<Product> getProductByCode(Long code);
     Boolean deleteProduct(Long code);
+    Long lastCode();
 
 }
