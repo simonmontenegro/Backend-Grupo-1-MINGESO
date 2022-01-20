@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: simonmontenegro/backend-mingeso
+          image: simonmontenegro/backend-mingeso:docker-mingeso
           imagePullPolicy: Always
           ports:
             - name: http
