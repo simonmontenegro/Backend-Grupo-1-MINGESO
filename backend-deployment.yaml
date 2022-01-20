@@ -19,5 +19,5 @@ spec:
           image: simonmontenegro/backend-mingeso
           imagePullPolicy: Always
           ports:
-            . name: http
+            - name: http
               containerPort: 8082
