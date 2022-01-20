@@ -10,7 +10,7 @@ services:
     depends_on:
       - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/supermercado
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5433/supermercado
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=admin
           
