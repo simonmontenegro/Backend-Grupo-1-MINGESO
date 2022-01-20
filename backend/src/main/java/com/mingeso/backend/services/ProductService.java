@@ -37,6 +37,6 @@ public class ProductService {
 
     @DeleteMapping("/deleteproduct/{code}")
     public boolean deleteProduct(@PathVariable Long code){
-        return productRepository.deleteProduct(code);
+        //return productRepository.deleteProduct(code);
     }
 }
