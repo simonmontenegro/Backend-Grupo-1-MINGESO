@@ -23,5 +23,5 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=supermercado
-    #volumes:
-    #  - ./dbCreate.sql:/docker-entrypoint-initdb.d/dbCreate.sql
+    volumes:
+      - ./dbCreate.sql:/docker-entrypoint-initdb.d/dbCreate.sql
