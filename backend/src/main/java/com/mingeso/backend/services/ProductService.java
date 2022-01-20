@@ -27,9 +27,8 @@ public class ProductService {
     }
 
     @GetMapping("/allproducts")
-    public String getAllProducts() {
-        return "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-        //return productRepository.getAllProducts();
+    public List<Product> getAllProducts() {
+        return productRepository.getAllProducts();
     }
     @GetMapping("/product/{code}")
     public List<Product> getProductByCode(@PathVariable Long code) {
