@@ -2,7 +2,7 @@ version: '2'
 
 services:
   app:
-    image: 'simonmontenegro/backend-mingeso'
+    image: 'simonmontenegro/backend-mingeso:docker-mingeso'
     build: .
     ports:
       - 8082:8082
@@ -15,7 +15,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=admin
           
   db:
-    image: 'simonmontenegro/database-mingeso'
+    image: 'simonmontenegro/database-mingeso:docker-database'
     container_name: database
     ports:
       - 5432:5432
