@@ -10,7 +10,7 @@ services:
     depends_on:
       - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/supermercado
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5433/supermercado
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=admin
           
@@ -18,7 +18,7 @@ services:
     image: 'simonmontenegro/database-mingeso'
     container_name: database
     ports:
-      - 5432:5432
+      - 5433:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin
